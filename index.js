@@ -3,8 +3,6 @@ var tokenVerify = require('./token_verify')(), //verifies token
     jwt = require('jsonwebtoken'); // used to create, assign and verify tokens
 
 
-
-
 module.exports = function(app){
 
 var login, register, update, secret, tokenName, model, User;

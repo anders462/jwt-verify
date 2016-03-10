@@ -1,47 +1,47 @@
-# JWT Authentication module
+# Node.js Module for JWT Authentication
 
-## Requirement
+##Implements the following methods
+
+1. Login user ```auth.login()```
+2. Register user ```auth.register()```
+3. Update password for user ```auth.update()```
+
+
+## Requirements
+### Module assumes your using:
 1. Node.js/Express.js
-2. MongoDB/Mongoose
+2. MongoDB
+3. Defined a Mongoose user models seen below
 
-DB USER Model:
 ```
-// model/users.js
+// model/users.js need to have "username" and "password" as properties
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var User = new Schema({
     username: String,
     password: String,
-    admin: Boolean
 });
 module.exports = mongoose.model('User',User);
 
 ```
 
-##Implements the following methods
-
-1. Login user ```auth.login()```
-2. Register user ```auth.register()```
-3. Update password for user ```auth.update```
-
-JWT is used for Authentication
-
-##How to use:
+##Installation
 ```
+npm install auth-module-jwt --save
+
+```
+
+```
+// create a express app
 var app = express(); // create express app instance
-```
 
-##initiate auth module
-```
+//initiate auth module
 var auth = require('./auth_mod')(app);
-```
 
-##set config values
+//set config values
+auth.config({}); //{} sets default values
 ```
-auth.config({});//{} sets default values
-```
-
 
 ###Default values!
 ```
@@ -51,12 +51,13 @@ update = '/api/update';
 secret =  'verysecret';
 tokenName = 'x-access-token';
 model = "./models/user";
+
 ```
 
 ###or set to custom values:
 
-###Example custom values
 ```
+//example how to set custom values
 auth.config({
 login: '/my_login_route',
 register: '/my_register_route',
@@ -65,11 +66,54 @@ secret: process.env.TOKEN_SECRET,
 tokenName: 'my_token_name,
 model: "./my_model_url"
 });
+
 ```
 
-###Initiate routes:
+###Initiate the routes and your done!:
 ```
 auth.register();
 auth.login();
 auth.update();
+
 ```
+
+###Client side token configuration
+
+```
+//Set token in header
+tokenName: xxxxx.yyyyy.zzzzz
+
+//Set token in body
+{tokenName: xxxxx.yyyyy.zzzzz }
+
+//Set token as url query parameter
+/api/register/?tokenName=xxxxx.yyyyy.zzzzz
+
+```
+
+
+###Response messages:
+```
+//Login success
+{success: true, message: 'Token sent', token: token, user: user.username }
+
+//Login failure
+{success:false, message: "DB error"};
+{success:false, message: "Authentication failed. User not found!"};
+{success:false, message: "Authentication failed. Wrong password!"};
+
+
+//Register success
+{ success: true, message: "New user created and saved" }
+
+//Register failure
+{ success: false, message: "Username already exists" };
+
+
+//Update password success
+{ success: true, message: "New password saved" }
+
+//Update password failure
+{success:false, message: "Authentication failed. Wrong password!"};
+{success: false, message: "Failed to authenticate token"}
+{success: false, message: 'No token provided'}

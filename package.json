@@ -1,7 +1,7 @@
 {
-  "name": "jwt-verify",
-  "version": "0.0.1",
-  "description": "Middleware that verify JWT",
+  "name": "jwt-auth",
+  "version": "1.0.0",
+  "description": "Module that creates Authentication routes ",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
@@ -11,13 +11,11 @@
     "url": "git+https://github.com/anders462/jwt-verify.git"
   },
   "keywords": [
-    "JWT",
-    "Jason",
-    "Web",
-    "Token",
+    "JWT Authentication",
+    "Jason Web Token",
     "Middleware"
   ],
-  "author": "Anders Bengtsson",
+  "author": "Anders Bengtsson anders462@gmail.com",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/anders462/jwt-verify/issues"
@@ -25,10 +23,7 @@
   "homepage": "https://github.com/anders462/jwt-verify#readme",
   "dependencies": {
     "bcrypt": "^0.8.5",
-    "body-parser": "^1.15.0",
-    "dotenv": "^2.0.0",
     "jsonwebtoken": "^5.7.0",
     "mongoose": "^4.4.6",
-    "morgan": "^1.7.0"
   }
 }
