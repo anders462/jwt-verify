@@ -1,11 +1,9 @@
-# Node.js Module for JWT Authentication
+# Node.js Module for JWT Authentication Module
 
-##Implements the following methods
 
-1. Login user ```auth.login()```
-2. Register user ```auth.register()```
-3. Update password for user ```auth.update()```
-
+## Summary
+Simple Authentication module using JWT Token and hash passwords with bcrypt.
+Creates a middleware with '/login', '/register' and '/update' routes.
 
 ## Requirements
 ### Module assumes your using:
@@ -35,12 +33,13 @@ npm install auth-module-jwt --save
 ```
 // create a express app
 var app = express(); // create express app instance
+var User = require("./models/user"); //your User model
 
 //initiate auth module
-var auth = require('./auth_mod')(app);
+var auth = require('./auth-module-jwt');
 
 //set config values
-auth.config({}); //{} sets default values
+auth.config({},User); //{} sets default values and pass in User Obj
 ```
 
 ###Default values!
@@ -50,7 +49,6 @@ register = '/api/register';
 update = '/api/update';
 secret =  'verysecret';
 tokenName = 'x-access-token';
-model = "./models/user";
 
 ```
 
@@ -64,16 +62,13 @@ register: '/my_register_route',
 update: '/my_update_route',
 secret: process.env.TOKEN_SECRET,
 tokenName: 'my_token_name,
-model: "./my_model_url"
-});
+},User);
 
 ```
 
-###Initiate the routes and your done!:
+###Mount the middel-ware and your done!:
 ```
-auth.register();
-auth.login();
-auth.update();
+app.use('/auth',auth.authRouter());
 
 ```
 

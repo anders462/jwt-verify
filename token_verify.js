@@ -1,4 +1,4 @@
-(function(){
+
 
 'use strict'
 
@@ -42,5 +42,3 @@ module.verify = function(req,res,next){
   return module;
 
 };
-
-})();
