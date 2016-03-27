@@ -66,7 +66,7 @@ tokenName: 'my_token_name,
 
 ```
 
-###Mount the middel-ware and your done!:
+###Mount the middleware and your done!:
 ```
 app.use('/auth',auth.authRouter());
 
