@@ -44,7 +44,7 @@ auth.config({},User); //{} sets default values and pass in User Obj
 
 ###Default values!
 ```
-login = options.login || '/api/login';
+login = '/api/login';
 register = '/api/register';
 update = '/api/update';
 secret =  'verysecret';
