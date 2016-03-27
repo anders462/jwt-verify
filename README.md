@@ -3,7 +3,7 @@
 
 ## Summary
 Simple Authentication module using JWT Token and hash passwords with bcrypt.
-Creates a middleware with '/login', '/register' and '/update' routes. 
+Creates a middleware with '/login', '/register' and '/update' routes.
 
 ## Requirements
 ### Module assumes your using:
@@ -75,6 +75,9 @@ app.use('/auth',auth.authRouter());
 ###Client side token configuration
 
 ```
+//send username and password in as body JSON objects
+{"username":"myusername","password":"mypassword"}
+
 //Set token in header
 tokenName: xxxxx.yyyyy.zzzzz
 
