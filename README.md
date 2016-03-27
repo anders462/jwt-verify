@@ -72,7 +72,7 @@ app.use('/auth',auth.authRouter());
 
 ```
 
-###Client side token configuration
+###Client side configuration
 
 ```
 //send username and password in as body JSON objects
