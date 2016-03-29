@@ -13,7 +13,7 @@ var router = express.Router();
 function config(options, user){
   login =  options.login || '/api/login';
   register = options.register || '/api/register';
-  update = options.update || '//api/update';
+  update = options.update || '/api/update';
   secret = options.secret || 'verysecret';
   tokenName = options.tokenName || "x-access-token";
   User = user;
