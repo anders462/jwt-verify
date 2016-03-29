@@ -1,6 +1,6 @@
 {
   "name": "auth-module-jwt",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Module that creates Authentication routes ",
   "main": "index.js",
   "scripts": {

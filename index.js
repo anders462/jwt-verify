@@ -11,9 +11,9 @@ var login, register, update,secret,tokenName,User;
 var router = express.Router();
 
 function config(options, user){
-  login =  options.login || '/api/login';
-  register = options.register || '/api/register';
-  update = options.update || '/api/update';
+  login =  options.login || '/login';
+  register = options.register || '/register';
+  update = options.update || '/update';
   secret = options.secret || 'verysecret';
   tokenName = options.tokenName || "x-access-token";
   User = user;

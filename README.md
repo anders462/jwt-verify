@@ -44,9 +44,9 @@ auth.config({},User); //{} sets default values and pass in User Obj
 
 ###Default values!
 ```
-login = '/api/login';
-register = '/api/register';
-update = '/api/update';
+login = '/login';
+register = '/register';
+update = '/update';
 secret =  'verysecret';
 tokenName = 'x-access-token';
 
